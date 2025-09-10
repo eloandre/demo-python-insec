@@ -21,7 +21,7 @@ app = Flask(__name__)
 # ---------- Credenciais / API key hardcoded (INSEGURAS) ----------
 HARDCODED_USER = "admin_user"
 HARDCODED_PASS = "P@ssw0rd-fiCticio"
-FAKE_API_KEY = "sk_test_FAKE_PY_1234567890"
+API_KEY = "sk_test_FAKE_PY_1234567890"
 
 # ---------- Banco SQLite simples (arquivo) ----------
 DATABASE = 'insecure.db'
@@ -151,7 +151,7 @@ def pay():
     """
     return jsonify({
         "note": "Endpoint de pagamento (simulado). Chave embutida no código (inseguro).",
-        "api_key": FAKE_API_KEY
+        "api_key": API_KEY
     })
 
 # ---------- Rota para explicar como mitigar (educacional) ----------

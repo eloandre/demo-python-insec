@@ -19,8 +19,8 @@ import html
 app = Flask(__name__)
 
 # ---------- Credenciais / API key hardcoded (INSEGURAS) ----------
-HARDCODED_USER = "admin_user"
-HARDCODED_PASS = "P@ssw0rd-fiCticio"
+USER = "admin_user"
+PASS = "P@ssw0rd-fiCticio"
 API_KEY = "sk_test_FAKE_PY_1234567890"
 
 # ---------- Banco SQLite simples (arquivo) ----------
@@ -64,7 +64,7 @@ def login():
     password = data.get('password')
 
     # Vulnerabilidade: autenticação com credenciais hardcoded
-    if username == HARDCODED_USER and password == HARDCODED_PASS:
+    if username == USER and password == PASS:
         return jsonify({"ok": True, "msg": "Autenticado (fictício)."}), 200
 
     return jsonify({"ok": False, "msg": "Credenciais inválidas."}), 401

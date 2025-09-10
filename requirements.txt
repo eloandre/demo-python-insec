@@ -1,0 +1,8 @@
+Flask==0.12.4            # versão antiga do Flask (vulnerabilidades conhecidas e sem fixes recentes)
+Jinja2==2.8.1            # versão antiga e vulnerable a template injection/escape issues
+requests==2.18.4         # versão antiga (exemplo)
+PyYAML==3.11             # versão antiga (possíveis problemas de carga insegura)
+sqlalchemy==1.0.12       # versão antiga (exemplo)
+# Pacotes com histórico de incidentes / typosquatting (exemplos — cuidado)
+badlib-typo-example==0.1.0
+malicious-package-example==0.0.1

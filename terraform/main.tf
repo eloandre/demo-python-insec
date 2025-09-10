@@ -1,10 +1,10 @@
-# Insecure IaC - Terraform para AWS (EXEMPLO)
+# IaC - Terraform para AWS (EXEMPLO)
 provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_security_group" "insecure_sg" {
-  name        = "insecure-sg-py"
+resource "aws_security_group" "py_sg" {
+  name        = "py-sg-py"
   description = "Security group inseguro com portas abertas"
 
   ingress {
@@ -36,7 +36,7 @@ resource "aws_instance" "insecure_app" {
   instance_type = "t2.micro"
   key_name      = "hardcoded-ssh-key-py"
 
-  vpc_security_group_ids = [aws_security_group.insecure_sg.id]
+  vpc_security_group_ids = [aws_security_group.py_sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -49,8 +49,8 @@ resource "aws_instance" "insecure_app" {
   }
 }
 
-resource "aws_db_instance" "insecure_db" {
-  identifier           = "insecure-db-py"
+resource "aws_db_instance" "py_db" {
+  identifier           = "db-py"
   allocated_storage    = 20
   engine               = "mysql"
   engine_version       = "5.7"
@@ -60,6 +60,6 @@ resource "aws_db_instance" "insecure_db" {
   publicly_accessible  = true
   skip_final_snapshot  = true
 
-  vpc_security_group_ids = [aws_security_group.insecure_sg.id]
+  vpc_security_group_ids = [aws_security_group.py_sg.id]
 }
 
